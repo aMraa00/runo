@@ -207,7 +207,8 @@ const updateBlog = async (req,res)=>{
       };
     }
 
-
+    blog.title = title;
+    blog.description = description;
     // Save the updated blog
     const updatedBlog = await blog.save();
 

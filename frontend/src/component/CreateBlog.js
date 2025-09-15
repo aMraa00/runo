@@ -77,7 +77,11 @@ function CreateBlog() {
         navigate("/");
       })
       .catch((err) => {
-        toast.error(err.res.data.message);
+        if (err.response && err.response.data && err.response.data.message) {
+          toast.error(err.response.data.message);
+        } else {
+          toast.error('An unexpected error occurred. Please try again.');
+        }
       });
   };
   return (
